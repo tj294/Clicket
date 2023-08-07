@@ -1,0 +1,60 @@
+Caught | Attempting a big shot, the batter finds the fielder and departs.
+Bowled | The delivery sneaks through, knocking over the stumps.
+LBW | Struck on the pads right in front of the stumps, the umpire raises the finger.
+Run Out | Miscommunication leads to both batters at the same end, resulting in a run out.
+Stumped | Beaten by the spin, the bails are swiftly removed by the wicketkeeper.
+Caught | A top-edge from the batter's shot is pouched safely by a fielder.
+Bowled | Misjudging the delivery's length, the stumps are disturbed.
+LBW | Missing an attempted sweep, the batter's pad is hit in line with the stumps.
+Run Out | A direct hit from the outfield catches the batter short of the crease.
+Stumped | The batter's foot momentarily leaves the crease while playing a shot.
+Caught | Well-placed delivery induces an edge from the batter's bat.
+Bowled | Attempting an extravagant shot, the stumps are rattled.
+LBW | Struck on the pad while playing across the line.
+Run Out | Direct hit from the deep catches the batter just short of the crease.
+Stumped | Dances down the track but fails to connect, leading to a stumping.
+Caught | Attempting a drive, the edge is safely taken by a fielder.
+Bowled | Attempting a big swing, the stumps are comprehensively beaten.
+LBW | Struck on the pad while attempting to play across the line.
+Run Out | Miscommunication leads to a mix-up in running, resulting in a run out.
+Stumped | Advances down the pitch but misses, leading to a stumping.
+Caught | Mistiming a lofted shot, an easy catch is offered to a fielder.
+Bowled | Attempting to drive, the ball sneaks through and hits the stumps.
+LBW | Playing down the wrong line, the batter is struck on the pad.
+Run Out | Sharp throw from the deep catches the batter short of the crease.
+Stumped | Losing balance while attempting a shot, the bails are dislodged.
+Caught | Edges a rising delivery outside off stump to the wicketkeeper.
+Bowled | Deceived by a slower delivery, the top of off stump is clipped.
+LBW | Misjudging the length, the batter is struck on the pad.
+Run Out | Quick pick-up and throw from the fielder catches the batter short.
+Stumped | Losing balance while attempting a shot, a stumping occurs.
+Caught | Well-disguised slower ball induces an edge from the batter's bat.
+Bowled | Playing down the wrong line, the ball crashes into the stumps.
+LBW | Playing down the wrong line, the batter is struck on the pad.
+Run Out | Direct hit from the fielder catches the batter short of the crease.
+Stumped | Foot momentarily leaves the crease while playing a shot.
+Caught | Rising delivery outside off stump is edged to the wicketkeeper.
+Bowled | Attempting a big shot, the batter finds the fielder.
+LBW | Struck on the pad while attempting to play across the line.
+Run Out | Miscommunication leads to both batters at the same end, resulting in a run out.
+Stumped | Beaten by the spin, the bails are swiftly removed.
+Caught | Top-edge from the batter's shot is pouched safely by a fielder.
+Bowled | Misjudging the delivery's length, the stumps are disturbed.
+LBW | Missing an attempted sweep, the batter's pad is hit.
+Run Out | Direct hit from the outfield catches the batter short.
+Stumped | Dances down the track but fails to connect, leading to a stumping.
+Caught | Well-placed delivery induces an edge from the batter's bat.
+Bowled | Attempting an extravagant shot, the stumps are rattled.
+LBW | Struck on the pad while attempting to play across the line.
+Run Out | Miscommunication leads to both batters at the same end, resulting in a run out.
+Stumped | Beaten by the spin, the bails are swiftly removed.
+Caught | Top-edge from the batter's shot is pouched safely by a fielder.
+Bowled | Misjudging the delivery's length, the stumps are disturbed.
+LBW | Missing an attempted sweep, the batter's pad is hit.
+Run Out | Direct hit from the outfield catches the batter short.
+Stumped | Dances down the track but fails to connect, leading to a stumping.
+Caught | Well-placed delivery induces an edge from the batter's bat.
+Bowled | Deceived by a slower delivery, the top of off stump is clipped.
+LBW | Misjudging the length, the batter is struck on the pad.
+Run Out | Quick pick-up and throw from the fielder catches the batter short.
+Stumped | Losing balance while attempting a shot, the bails are dislodged.

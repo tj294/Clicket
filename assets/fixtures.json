@@ -1,0 +1,314 @@
+{
+    "Round 1": {
+        "Match 1": [
+            "Yorkshire Puddings",
+            "Edinburgh XI"
+        ],
+        "Match 2": [
+            "Manchester Monsters",
+            "Parliamentary Penpushers"
+        ],
+        "Match 3": [
+            "Birmingham Bullfrogs",
+            "Brighton Beachcombers"
+        ],
+        "Match 4": [
+            "Belfast Buccaneers",
+            "Bristol Bats"
+        ],
+        "Match 5": [
+            "Cardiff Cwtchers",
+            "Dublin Dodos"
+        ],
+        "Match 6": [
+            "Glasgow Goofballs",
+            "Nottingham Nightingales"
+        ]
+    },
+    "Round 2": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Manchester Monsters"
+        ],
+        "Match 2": [
+            "Brighton Beachcombers",
+            "Birmingham Bullfrogs"
+        ],
+        "Match 3": [
+            "Bristol Bats",
+            "Belfast Buccaneers"
+        ],
+        "Match 4": [
+            "Dublin Dodos",
+            "Cardiff Cwtchers"
+        ],
+        "Match 5": [
+            "Nottingham Nightingales",
+            "Glasgow Goofballs"
+        ],
+        "Match 6": [
+            "Yorkshire Puddings",
+            "Parliamentary Penpushers"
+        ]
+    },
+    "Round 3": {
+        "Match 1": [
+            "Birmingham Bullfrogs",
+            "Edinburgh XI"
+        ],
+        "Match 2": [
+            "Belfast Buccaneers",
+            "Bristol Bats"
+        ],
+        "Match 3": [
+            "Cardiff Cwtchers",
+            "Dublin Dodos"
+        ],
+        "Match 4": [
+            "Glasgow Goofballs",
+            "Nottingham Nightingales"
+        ],
+        "Match 5": [
+            "Parliamentary Penpushers",
+            "Yorkshire Puddings"
+        ],
+        "Match 6": [
+            "Brighton Beachcombers",
+            "Manchester Monsters"
+        ]
+    },
+    "Round 4": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Belfast Buccaneers"
+        ],
+        "Match 2": [
+            "Dublin Dodos",
+            "Cardiff Cwtchers"
+        ],
+        "Match 3": [
+            "Nottingham Nightingales",
+            "Glasgow Goofballs"
+        ],
+        "Match 4": [
+            "Yorkshire Puddings",
+            "Parliamentary Penpushers"
+        ],
+        "Match 5": [
+            "Manchester Monsters",
+            "Brighton Beachcombers"
+        ],
+        "Match 6": [
+            "Birmingham Bullfrogs",
+            "Bristol Bats"
+        ]
+    },
+    "Round 5": {
+        "Match 1": [
+            "Cardiff Cwtchers",
+            "Edinburgh XI"
+        ],
+        "Match 2": [
+            "Glasgow Goofballs",
+            "Nottingham Nightingales"
+        ],
+        "Match 3": [
+            "Parliamentary Penpushers",
+            "Yorkshire Puddings"
+        ],
+        "Match 4": [
+            "Brighton Beachcombers",
+            "Manchester Monsters"
+        ],
+        "Match 5": [
+            "Bristol Bats",
+            "Birmingham Bullfrogs"
+        ],
+        "Match 6": [
+            "Dublin Dodos",
+            "Belfast Buccaneers"
+        ]
+    },
+    "Round 6": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Glasgow Goofballs"
+        ],
+        "Match 2": [
+            "Yorkshire Puddings",
+            "Parliamentary Penpushers"
+        ],
+        "Match 3": [
+            "Manchester Monsters",
+            "Brighton Beachcombers"
+        ],
+        "Match 4": [
+            "Birmingham Bullfrogs",
+            "Bristol Bats"
+        ],
+        "Match 5": [
+            "Belfast Buccaneers",
+            "Dublin Dodos"
+        ],
+        "Match 6": [
+            "Cardiff Cwtchers",
+            "Nottingham Nightingales"
+        ]
+    },
+    "Round 7": {
+        "Match 1": [
+            "Parliamentary Penpushers",
+            "Edinburgh XI"
+        ],
+        "Match 2": [
+            "Brighton Beachcombers",
+            "Manchester Monsters"
+        ],
+        "Match 3": [
+            "Bristol Bats",
+            "Birmingham Bullfrogs"
+        ],
+        "Match 4": [
+            "Dublin Dodos",
+            "Belfast Buccaneers"
+        ],
+        "Match 5": [
+            "Nottingham Nightingales",
+            "Cardiff Cwtchers"
+        ],
+        "Match 6": [
+            "Yorkshire Puddings",
+            "Glasgow Goofballs"
+        ]
+    },
+    "Round 8": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Brighton Beachcombers"
+        ],
+        "Match 2": [
+            "Birmingham Bullfrogs",
+            "Bristol Bats"
+        ],
+        "Match 3": [
+            "Belfast Buccaneers",
+            "Dublin Dodos"
+        ],
+        "Match 4": [
+            "Cardiff Cwtchers",
+            "Nottingham Nightingales"
+        ],
+        "Match 5": [
+            "Glasgow Goofballs",
+            "Yorkshire Puddings"
+        ],
+        "Match 6": [
+            "Parliamentary Penpushers",
+            "Manchester Monsters"
+        ]
+    },
+    "Round 9": {
+        "Match 1": [
+            "Bristol Bats",
+            "Edinburgh XI"
+        ],
+        "Match 2": [
+            "Dublin Dodos",
+            "Belfast Buccaneers"
+        ],
+        "Match 3": [
+            "Nottingham Nightingales",
+            "Cardiff Cwtchers"
+        ],
+        "Match 4": [
+            "Yorkshire Puddings",
+            "Glasgow Goofballs"
+        ],
+        "Match 5": [
+            "Manchester Monsters",
+            "Parliamentary Penpushers"
+        ],
+        "Match 6": [
+            "Birmingham Bullfrogs",
+            "Brighton Beachcombers"
+        ]
+    },
+    "Round 10": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Dublin Dodos"
+        ],
+        "Match 2": [
+            "Cardiff Cwtchers",
+            "Nottingham Nightingales"
+        ],
+        "Match 3": [
+            "Glasgow Goofballs",
+            "Yorkshire Puddings"
+        ],
+        "Match 4": [
+            "Parliamentary Penpushers",
+            "Manchester Monsters"
+        ],
+        "Match 5": [
+            "Brighton Beachcombers",
+            "Birmingham Bullfrogs"
+        ],
+        "Match 6": [
+            "Bristol Bats",
+            "Belfast Buccaneers"
+        ]
+    },
+    "Round 11": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Glasgow Goofballs"
+        ],
+        "Match 2": [
+            "Parliamentary Penpushers",
+            "Brighton Beachcombers"
+        ],
+        "Match 3": [
+            "Brighton Beachcombers",
+            "Parliamentary Penpushers"
+        ],
+        "Match 4": [
+            "Bristol Bats",
+            "Cardiff Cwtchers"
+        ],
+        "Match 5": [
+            "Dublin Dodos",
+            "Belfast Buccaneers"
+        ],
+        "Match 6": [
+            "Nottingham Nightingales",
+            "Birmingham Bullfrogs"
+        ]
+    },
+    "Local Derby": {
+        "Match 1": [
+            "Edinburgh XI",
+            "Glasgow Goofballs"
+        ],
+        "Match 2": [
+            "Parliamentary Penpushers",
+            "Brighton Beachcombers"
+        ],
+        "Match 3": [
+            "Brighton Beachcombers",
+            "Parliamentary Penpushers"
+        ],
+        "Match 4": [
+            "Bristol Bats",
+            "Cardiff Cwtchers"
+        ],
+        "Match 5": [
+            "Dublin Dodos",
+            "Belfast Buccaneers"
+        ],
+        "Match 6": [
+            "Nottingham Nightingales",
+            "Birmingham Bullfrogs"
+        ]
+    }
+}
