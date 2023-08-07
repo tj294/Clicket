@@ -40,15 +40,29 @@ def randomFielder(bowling_team):
     return npr.choice(fielders)
 
 def noBall(batting_team, bowling_team):
-    gen_scoreboard_text(batting_team, bowling_team, 'noBall')
+    scoreboard_text = gen_scoreboard_text(batting_team, bowling_team, 'noBall')
     batting_team.score += 1
     for batter in batting_team.batters:
         if batter.onStrike:
             batter.ballsFaced += 1
+            scoreboard_text = scoreboard_text.replace('BATTER', batter.lname)
     for bowler in bowling_team.bowlers:
         if bowler.onStrike:
             bowler.runsConceded += 1
-    return '⃝ '
+            scoreboard_text = scoreboard_text.replace('BOWLER', bowler.lname)
+    return '⃝ ', scoreboard_text
+
+def wideBall(batting_team, bowling_team):
+    scoreboard_text = gen_scoreboard_text(batting_team, bowling_team, 'wideBall')
+    batting_team.score += 1
+    for bowler in bowling_team.bowlers:
+        if bowler.onStrike:
+            bowler.runsConceded += 1
+            scoreboard_text = scoreboard_text.replace('BOWLER', bowler.lname)
+    for batter in batting_team.batters:
+        if batter.onStrike:
+            scoreboard_text = scoreboard_text.replace('BATTER', batter.lname)
+    return '+ ', scoreboard_text
 
 def dotBall(batting_team, bowling_team):
     scoreboard_text = gen_scoreboard_text(batting_team, bowling_team, 'dotBall')
