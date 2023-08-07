@@ -27,7 +27,7 @@ from os import makedirs
 from classes import Player, Team, random, new_batter, new_bowler
 from results import *
 
-BALL_PAUSE = 0 # seconds
+BALL_PAUSE = 2 # seconds
 INNINGS_PAUSE = 5 # seconds
 MAX_OVERS_PER_BOWLER = 2
 
@@ -242,28 +242,35 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                 # print(f"{bowl} to {bat}...")        
                 # print("\n")
                 scoreboard_text = ''
-                if ball_odds < 0.382:
+                if ball_odds < 0.43497:
                     # No Runs
-                    if ball_odds < 0.08:
+                    if ball_odds < 0.0494:
                         # print("Wicket")
                         thisBall, text = wicket(batting_team, bowling_team)
-
+                    elif ball_odds < 0.0805:
+                        # print("Wide ball")
+                        thisBall, text = wideBall(batting_team, bowling_team)
+                        batting_team.ballsFaced -= 1
+                    elif ball_odds < 0.0845:
+                        # print("No ball")
+                        thisBall, text = noBall(batting_team, bowling_team)
+                        batting_team.ballsFaced -= 1
                     else:
                         # print("dot ball")
                         thisBall, text = dotBall(batting_team, bowling_team)
-                elif ball_odds < 0.764:
+                elif ball_odds < 0.80637:
                     # 1 run
                     # print("1 run")
                     thisBall, text = oneRun(batting_team, bowling_team)
-                elif ball_odds < 0.838:
+                elif ball_odds < 0.86967:
                     # 2 runs
                     # print("2 runs")
                     thisBall, text = twoRuns(batting_team, bowling_team)
-                elif ball_odds < 0.8425:
+                elif ball_odds < 0.87277:
                     # 3 runs
                     # print("3 runs")
                     thisBall, text = threeRuns(batting_team, bowling_team)
-                elif ball_odds < 0.952:
+                elif ball_odds < 0.98567:
                     # 4 runs
                     # print("4 runs")
                     thisBall, text = fourRuns(batting_team, bowling_team)
