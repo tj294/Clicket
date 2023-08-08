@@ -317,7 +317,7 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                     if batting_team.score > bowling_team.score:
                         break
             if batting_team.score == score_last_over:
-                bowl.maidens += 1
+                bowling_team.bowl.maidens += 1
             batting_team.curr_over = ''
             if batting_team.wickets == 10:
                 break
