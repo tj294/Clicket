@@ -19,6 +19,7 @@ import sys
 import numpy.random as npr
 import json
 import time
+import textwrap
 from datetime import date
 from glob import glob
 from docopt import docopt
@@ -79,6 +80,7 @@ def updateCareerStats(batting_team, bowling_team):
                 json.dump(player.full(), f, indent=4)
 
 def print_scorecard(batting_team, bowling_team, text='', round_no=0, match_no=0):
+    print("\n"*10)
     print(f"Round {round_no}, Match {match_no}")
     print(f"{'='*55:<55}")
     print(f"{batting_team} {batting_team.score}/{batting_team.wickets} ({batting_team.overs}.{batting_team.ballsFaced})")
@@ -114,6 +116,18 @@ def print_scorecard(batting_team, bowling_team, text='', round_no=0, match_no=0)
                 print(f"{bowler.fname[0] + ' ' +bowler.lname:<20}{bowler.oversBowled:>4}{bowler.maidens:>10}{bowler.runsConceded:>6}{bowler.wicketsTaken:>6}{bowler.economy():>8.2f}")
             else:
                 print(f"{str(bowler):<20}{bowler.oversBowled:>4}{bowler.maidens:>10}{bowler.runsConceded:>6}{bowler.wicketsTaken:>6}{bowler.economy():>8.2f}")
+    print(f"{'='*55:<55}")
+    print(f"{bowling_team.bowl} to {batting_team.bat}...")
+    scoreboard_wrap = textwrap.wrap(text, width=55)
+    lines = 0
+    for line in scoreboard_wrap:
+        print(f"{line:<55}")
+        lines += 1
+    # print(f"{scoreboard_text}")
+    n_extras = 4-lines
+    print("\n"*n_extras, end='')
+    print(f"{'='*55:<55}")
+    print(f"Over {batting_team.overs:>2}.{batting_team.ballsFaced:<1} | {batting_team.curr_over:<40}")
     print(f"{'='*55:<55}")
 
 def innings_roundup(batting_team, bowling_team, round_no=0, match_no=0, out=sys.stdout):
@@ -227,17 +241,16 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
             bowling_team.bowlers.append(new_bowler(bowling_team.players[next_bowler_index], strike=strike))
             next_bowler_index += 1
 
-        print_scorecard(batting_team, bowling_team, round_no=round_no, match_no=match_no)
         while batting_team.overs<20:
             #? EACH OVER
             while batting_team.ballsFaced<6:
                 #! EACH BALL
                 for bowler in bowling_team.bowlers:
                     if bowler.onStrike:
-                        bowl = bowler
+                        bowling_team.bowl = bowler
                 for batter in batting_team.batters:
                     if batter.onStrike:
-                        bat = batter
+                        batting_team.bat = batter
                 ball_odds = np.random.uniform(0, 1)
                 # print(f"{bowl} to {bat}...")        
                 # print("\n")
@@ -284,13 +297,19 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                 batting_team.curr_over += thisBall
                 scoreboard_text += text
                 print_scorecard(batting_team, bowling_team, scoreboard_text, round_no, match_no)
-                print(f"{bowl} to {bat}...")   
-                print(f"{scoreboard_text}")     
-                print("\n")
-                print(f"{'='*55:<55}")
-                print(f"Over {batting_team.overs:>2}.{batting_team.ballsFaced:<1} | {batting_team.curr_over:<40}")
-                print(f"{'='*55:<55}")
-                print('\n'*2)
+                # print(f"{bowl} to {bat}...")
+                # scoreboard_wrap = textwrap.wrap(scoreboard_text, width=55)
+                # lines = 0
+                # for line in scoreboard_wrap:
+                #     print(f"{line:<55}")
+                #     lines += 1
+                # # print(f"{scoreboard_text}")
+                # n_extras = 4-lines
+                # print("\n"*n_extras, end='')
+                # print(f"{'='*55:<55}")
+                # print(f"Over {batting_team.overs:>2}.{batting_team.ballsFaced:<1} | {batting_team.curr_over:<40}")
+                # print(f"{'='*55:<55}")
+                # print('\n'*2)
                 if batting_team.wickets == 10:
                     break
                 time.sleep(BALL_PAUSE)
@@ -315,15 +334,15 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                     bowler.ballsBowled = 0
                     if bowler.oversBowled == MAX_OVERS_PER_BOWLER and batting_team.overs < 17:
                         bowling_team.bowlers.remove(bowler)
-                        print("Next Bowler Index: ", next_bowler_index)
+                        # print("Next Bowler Index: ", next_bowler_index)
                         if bowling_team.players[next_bowler_index].isKeeper:
                             print(bowling_team.players[next_bowler_index], "is Keeper")
                             next_bowler_index += 1
-                        print("Next Bowler Index: ", next_bowler_index)
+                        # print("Next Bowler Index: ", next_bowler_index)
                         bowling_team.bowlers.append(new_bowler(bowling_team.players[next_bowler_index], strike=False))
-                        print("New bowler is ", bowling_team.bowlers[-1])
+                        # print("New bowler is ", bowling_team.bowlers[-1])
                         next_bowler_index += 1
-                        print("Next bowler Index: ", next_bowler_index)
+                        # print("Next bowler Index: ", next_bowler_index)
                 bowler.onStrike = not bowler.onStrike
         time.sleep(INNINGS_PAUSE)
         if innings == 1:
