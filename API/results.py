@@ -50,7 +50,7 @@ def noBall(batting_team, bowling_team):
         if bowler.onStrike:
             bowler.runsConceded += 1
             scoreboard_text = scoreboard_text.replace('BOWLER', bowler.lname)
-    return '⃝ ', scoreboard_text
+    return '◯ ', scoreboard_text
 
 def wideBall(batting_team, bowling_team):
     scoreboard_text = gen_scoreboard_text(batting_team, bowling_team, 'wideBall')
