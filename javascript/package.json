@@ -1,0 +1,7 @@
+{
+    "author": "Tom Joshi-Cale",
+    "description": "A fantasy T20 simulator",
+    "keywords": ["cricket", "simulator"],
+    "license": "MIT",
+    "version": "prerelease-1.0.0"
+}
