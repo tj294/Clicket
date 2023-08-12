@@ -17,8 +17,12 @@ def gen_scoreboard_text(batting_team, bowling_team, ball_outcome, N_lines=59):
     for player in bowling_team.bowlers:
         if player.onStrike:
             bowler = player
-    scoreboard_text = scoreboard_text.replace("The bowler ", bowler.lname + " ")
-    scoreboard_text = scoreboard_text.replace("the bowler ", bowler.lname + " ")
+    scoreboard_text = scoreboard_text.replace(
+        "The bowler ", bowler.lname + " "
+    ).replace("The spinner ", bowler.lname + " ")
+    scoreboard_text = scoreboard_text.replace(
+        "the bowler ", bowler.lname + " "
+    ).replace("the spinner ", bowler.lname + " ")
 
     return scoreboard_text
 
