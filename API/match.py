@@ -1,5 +1,8 @@
 """
 To Do:
+    - Save ball-by-ball data to logs
+    - Add run rate and required run rate to scoreboard
+    - Add runs to win and balls remaining to scoreboard
     - Send outputs to website
 
 Usage:
@@ -250,9 +253,8 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
 
     print(f"{str(home_team):<25} vs  {str(away_team):>25}")
     print(f"{'='*55:<55}")
-    for i, player in enumerate(home_team.players):
-        print(f"{str(player):<25}  |  {str(away_team.players[i]):>25}")
-
+    for idx, player in enumerate(home_team.players):
+        print(f"{str(player):<25}  |  {str(away_team.players[idx]):>25}")
     # ? The Toss
     away_call = npr.uniform(0, 1, 1)
     bat_or_bowl = npr.randint(0, 2, 1)
@@ -431,13 +433,13 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                         next_bowler_index -= 1
                         # print("Next bowler Index: ", next_bowler_index)
                 bowler.onStrike = not bowler.onStrike
-        time.sleep(INNINGS_PAUSE)
         if innings == 1:
             innings_roundup(batting_team, bowling_team, round_no, match_no)
             temp_store = batting_team
             batting_team = bowling_team
             bowling_team = temp_store
             batting_team.score = 0
+        time.sleep(INNINGS_PAUSE)
         innings += 1
 
     # ? The Match is Over
