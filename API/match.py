@@ -28,8 +28,8 @@ from os import makedirs
 from classes import Player, Team, random, new_batter, new_bowler, Odds
 from results import *
 
-BALL_PAUSE = 0  # seconds
-INNINGS_PAUSE = 0  # seconds
+BALL_PAUSE = 3  # seconds
+INNINGS_PAUSE = 5  # seconds
 MAX_OVERS_PER_BOWLER = 2
 
 
