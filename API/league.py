@@ -14,7 +14,7 @@ local_rivals = {
     "Edinburgh XI": "Glasgow Goofballs",
     "Bristol Bats": "Cardiff Cwtchers",
     "Manchester Monsters": "Yorkshire Puddings",
-    "Devon Devils": "Cornwall Catastophes",
+    "Devon Devils": "Cornwall Catastrophes",
 }
 
 
@@ -51,6 +51,24 @@ def print_league_table():
             f"{team['name']:<30} {team['gamesPlayed']:>5} {team['gamesWon']:>5} {team['gamesLost']:>5} {team['points']:>5} {team['NRR']:>5.2f}"
         )
     print()
+
+
+def clear_league_table():
+    for file in glob("../Teams/*"):
+        with open(file + "/" + file.split("/")[-1] + ".json", "r") as f:
+            team = json.load(f)
+        team["gamesPlayed"] = 0
+        team["gamesWon"] = 0
+        team["gamesLost"] = 0
+        team["gamesTied"] = 0
+        team["points"] = 0
+        team["oversFaced"] = 0
+        team["runsScored"] = 0
+        team["oversBowled"] = 0
+        team["runsConceded"] = 0
+        team["NRR"] = 0
+        with open(file + "/" + file.split("/")[-1] + ".json", "w") as f:
+            json.dump(team, f, indent=4)
 
 
 def update_league_table(outcome, round_no, match_no):
