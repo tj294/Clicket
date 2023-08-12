@@ -50,6 +50,24 @@ for team in team_list:
     players = []
     means = []
     os.makedirs("../Teams/" + team.replace(" ", "_") + "/players/")
+    team_info = {
+        "name": team,
+        "gamesPlayed": 0,
+        "gamesWon": 0,
+        "gamesLost": 0,
+        "gamesTied": 0,
+        "points": 0,
+        "oversFaced": 0,
+        "runsScored": 0,
+        "oversBowled": 0,
+        "runsConceded": 0,
+        "NRR": 0,
+    }
+    with open(
+        "../Teams/" + team.replace(" ", "_") + "/" + team.replace(" ", "_") + ".json",
+        "w",
+    ) as f:
+        json.dump(team_info, f, indent=4)
     for i in range(11):
         p = generate_player(team)
         players.append(p)

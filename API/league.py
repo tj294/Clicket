@@ -35,21 +35,78 @@ def rotate(teams):
     return teams
 
 
+def print_league_table():
+    team_list = []
+    score_list = []
+    for file in glob("../Teams/*"):
+        team_list.append(file)
+    print(f"{'Team':<30} {'P':>5} {'W':>5} {'L':>5} {'Pts':>5} {'NRR':>5}")
+    print("-" * 65)
+    for team in team_list:
+        with open(team + "/" + team.split("/")[-1] + ".json") as f:
+            team = json.load(f)
+        score_list.append(team)
+    for team in sorted(score_list, key=lambda k: (k["points"], k["NRR"]), reverse=True):
+        print(
+            f"{team['name']:<30} {team['gamesPlayed']:>5} {team['gamesWon']:>5} {team['gamesLost']:>5} {team['points']:>5} {team['NRR']:>5.2f}"
+        )
+    print()
+
+
 def update_league_table(outcome, round_no, match_no):
     result = outcome[0]
     winner = outcome[1]
-    loser = outcome[2]
+    winner_NRR = outcome[2]
+    loser = outcome[3]
+    loser_NRR = outcome[4]
+
+    with open(winner.path() + "/" + winner.name.replace(" ", "_") + ".json", "r") as f:
+        winner_data = json.load(f)
+    with open(loser.path() + "/" + loser.name.replace(" ", "_") + ".json", "r") as f:
+        loser_data = json.load(f)
+
     if result == "win":
-        winner.gamesPlayed += 1
-        loser.gamesPlayed += 1
-        winner.gamesWon += 1
-        loser.gamesLost += 1
-        winner.points += 2
+        winner_data["gamesPlayed"] += 1
+        loser_data["gamesPlayed"] += 1
+        winner_data["gamesWon"] += 1
+        loser_data["gamesLost"] += 1
+        winner_data["points"] += 2
+        winner_data["oversFaced"] += winner_NRR[0]
+        winner_data["runsScored"] += winner_NRR[1]
+        winner_data["oversBowled"] += winner_NRR[2]
+        winner_data["runsConceded"] += winner_NRR[3]
+        winner_data["NRR"] = (winner_data["runsScored"] / winner_data["oversFaced"]) - (
+            winner_data["runsConceded"] / winner_data["oversBowled"]
+        )
+        loser_data["oversFaced"] += loser_NRR[0]
+        loser_data["runsScored"] += loser_NRR[1]
+        loser_data["oversBowled"] += loser_NRR[2]
+        loser_data["runsConceded"] += loser_NRR[3]
+        loser_data["NRR"] = (loser_data["runsScored"] / loser_data["oversFaced"]) - (
+            loser_data["runsConceded"] / loser_data["oversBowled"]
+        )
     else:
-        winner.gamesPlayed += 1
-        loser.gamesPlayed += 1
-        winner.points += 1
-        loser.points += 1
+        winner_data["gamesPlayed"] += 1
+        loser_data["gamesPlayed"] += 1
+        winner_data["gamesTied"] += 1
+        loser_data["gamesTied"] += 1
+        winner_data["points"] += 1
+        loser_data["points"] += 1
+        winner_data["oversFaced"] += winner_NRR[0]
+        winner_data["runsScored"] += winner_NRR[1]
+        winner_data["oversBowled"] += winner_NRR[2]
+        winner_data["runsConceded"] += winner_NRR[3]
+        loser_data["oversFaced"] += loser_NRR[0]
+        loser_data["runsScored"] += loser_NRR[1]
+        loser_data["oversBowled"] += loser_NRR[2]
+        loser_data["runsConceded"] += loser_NRR[3]
+
+    with open(winner.path() + "/" + winner.name.replace(" ", "_") + ".json", "w") as f:
+        json.dump(winner_data, f, indent=4)
+    with open(loser.path() + "/" + loser.name.replace(" ", "_") + ".json", "w") as f:
+        json.dump(loser_data, f, indent=4)
+
+    print_league_table()
     pass
 
 
@@ -86,7 +143,7 @@ def createBracket(team_list):
         print(f"\t\t{home_teams[i]} vs {away_teams[i]}")
         local_matches[f"Match {match_no}"] = (home_teams[i], away_teams[i])
     rounds["Local Derby"] = local_matches
-    print(rounds["Round 11"])
+    # print(rounds["Round 11"])
     with open("../assets/fixtures.json", "w") as f:
         json.dump(rounds, f, indent=4)
 

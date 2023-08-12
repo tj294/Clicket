@@ -444,19 +444,33 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
 
     # ? The Match is Over
     print("Match complete!")
+    #! NRR = (total_runs scored / total overs faced) – (total runs conceded / total overs bowled)
+    bat_NRR = [
+        batting_team.overs,
+        batting_team.score,
+        bowling_team.overs,
+        bowling_team.score,
+    ]
+
+    bowl_NRR = [
+        bowling_team.overs,
+        bowling_team.score,
+        batting_team.overs,
+        batting_team.score,
+    ]
     if batting_team.score > bowling_team.score:
         result = f"{batting_team} win by {10-batting_team.wickets} wickets!"
         winning_team = batting_team
         losing_team = bowling_team
-        outcome = ["win", winning_team, losing_team]
+        outcome = ["win", winning_team, bat_NRR, losing_team, bowl_NRR]
     elif batting_team.score < bowling_team.score:
         result = f"{bowling_team} win by {bowling_team.score-batting_team.score} runs!"
         winning_team = bowling_team
         losing_team = batting_team
-        outcome = ["win", winning_team, losing_team]
+        outcome = ["win", winning_team, bowl_NRR, losing_team, bat_NRR]
     else:
         result = "Match tied!"
-        outcome = ["tie", home_team, away_team]
+        outcome = ["tie", bowling_team, bowl_NRR, batting_team, bat_NRR]
     print(result)
     innings_roundup(bowling_team, batting_team, round_no, match_no)
     innings_roundup(batting_team, bowling_team)
@@ -473,9 +487,9 @@ if __name__ == "__main__":
     if args["<HOME>"]:
         home_team = args["<HOME>"]
     else:
-        home_team = "Yorkshire Puddings"
+        home_team = "Devon Devils"
     if args["<AWAY>"]:
         away_team = args["<AWAY>"]
     else:
-        away_team = "Manchester Monsters"
+        away_team = "Cornwall Catastrophes"
     run_match(home_team, away_team, args["-l"])
