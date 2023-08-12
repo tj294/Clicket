@@ -1,6 +1,9 @@
 .conda/
+.vscode/
 Testing/
 Reports/
 Teams/
 __pycache__/
 .DS_Store
+django_project/
+assets/fixtures.json
