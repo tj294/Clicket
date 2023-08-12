@@ -3,7 +3,7 @@ import json
 import time
 import match
 
-from league import update_league_table
+from league import update_league_table, clear_league_table
 
 
 def time_diff(start, end):
@@ -29,6 +29,7 @@ LEAGUE_START_TIME = datetime.datetime.now() + datetime.timedelta(
 NEXT_MATCH_STARTS_AT = LEAGUE_START_TIME
 TIME_BETWEEN_MATCHES = datetime.timedelta(days=0, hours=0, minutes=0, seconds=1)
 TIME_BETWEEN_ROUNDS = datetime.timedelta(days=1)
+clear_league_table()
 while rounds_played < 12:
     while matches_played < 6:
         if rounds_played == 11:
