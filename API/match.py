@@ -1,6 +1,5 @@
 """
 To Do:
-    - Cycle through bowlers in reverse order
     - Send outputs to website
 
 Usage:
