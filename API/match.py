@@ -295,7 +295,7 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
             new_batter(batting_team.players[0], strike=True),
             new_batter(batting_team.players[1], strike=False),
         ]
-        next_bowler_index = 0
+        next_bowler_index = -1
         bowling_team.bowlers = []
         while len(bowling_team.bowlers) < 2:
             if len(bowling_team.bowlers) == 0:
@@ -303,11 +303,11 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
             else:
                 strike = False
             if bowling_team.players[next_bowler_index].isKeeper:
-                next_bowler_index += 1
+                next_bowler_index -= 1
             bowling_team.bowlers.append(
                 new_bowler(bowling_team.players[next_bowler_index], strike=strike)
             )
-            next_bowler_index += 1
+            next_bowler_index -= 1
 
         while batting_team.overs < 20:
             # ? EACH OVER
@@ -421,8 +421,7 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                         bowling_team.bowlers.remove(bowler)
                         # print("Next Bowler Index: ", next_bowler_index)
                         if bowling_team.players[next_bowler_index].isKeeper:
-                            print(bowling_team.players[next_bowler_index], "is Keeper")
-                            next_bowler_index += 1
+                            next_bowler_index -= 1
                         # print("Next Bowler Index: ", next_bowler_index)
                         bowling_team.bowlers.append(
                             new_bowler(
@@ -430,7 +429,7 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                             )
                         )
                         # print("New bowler is ", bowling_team.bowlers[-1])
-                        next_bowler_index += 1
+                        next_bowler_index -= 1
                         # print("Next bowler Index: ", next_bowler_index)
                 bowler.onStrike = not bowler.onStrike
         time.sleep(INNINGS_PAUSE)
