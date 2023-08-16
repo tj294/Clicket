@@ -1,8 +1,6 @@
 """
 To Do:
     - Save ball-by-ball data to logs
-    - Add run rate and required run rate to scoreboard
-    - Add runs to win and balls remaining to scoreboard
     - Send outputs to website
 
 Usage:
@@ -30,8 +28,8 @@ from os import makedirs
 from classes import Player, Team, random, new_batter, new_bowler, Odds
 from results import *
 
-BALL_PAUSE = 3  # seconds
-INNINGS_PAUSE = 5  # seconds
+BALL_PAUSE = 1  # seconds
+INNINGS_PAUSE = 4  # seconds
 MAX_OVERS_PER_BOWLER = 2
 
 
@@ -117,12 +115,24 @@ def print_scorecard(batting_team, bowling_team, text="", round_no=0, match_no=0)
     print(f"Round {round_no}, Match {match_no}")
     print(f"{'='*55:<55}")
     print(
-        f"{batting_team} {batting_team.score}/{batting_team.wickets} ({batting_team.overs}.{batting_team.ballsFaced})"
+        f"{batting_team} {batting_team.score}/{batting_team.wickets} ({batting_team.overs}.{batting_team.ballsFaced})",
+        end="\t",
     )
+    if not (batting_team.overs == 0 and batting_team.ballsFaced == 0):
+        print(
+            f"RR: {batting_team.score / ((6*batting_team.overs + batting_team.ballsFaced)/6):.2f}"
+        )
+    else:
+        print()
     if bowling_team.score == "YTB":
         print(f"\n{bowling_team} Yet to bat")
     else:
-        print(f"\n{bowling_team} {bowling_team.score}/{bowling_team.wickets}")
+        runs_needed = bowling_team.score - batting_team.score
+        balls_remaining = 6 * (19 - batting_team.overs) + (6 - batting_team.ballsFaced)
+        print(
+            f"Need {runs_needed} runs to win from {balls_remaining} balls.\tReq. RR {runs_needed / (balls_remaining/6):.2f}"
+        )
+        print(f"{bowling_team} {bowling_team.score}/{bowling_team.wickets}")
     print(f"{'-'*55:<55}")
     print(f"{'Batter':<14}{'Runs':>10}{'Balls':>10}{'4s':>6}{'6s':>6}{'SR':>8}")
     for batter in batting_team.batters:
