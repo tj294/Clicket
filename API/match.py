@@ -28,9 +28,11 @@ from os import makedirs
 from classes import Player, Team, random, new_batter, new_bowler, Odds
 from results import *
 
-BALL_PAUSE = 1  # seconds
-INNINGS_PAUSE = 4  # seconds
+BALL_PAUSE = 3.5  # seconds
+INNINGS_PAUSE = 5  # seconds
 MAX_OVERS_PER_BOWLER = 2
+
+plot = False
 
 
 def updateCareerStats(batting_team, bowling_team):
@@ -127,8 +129,10 @@ def print_scorecard(batting_team, bowling_team, text="", round_no=0, match_no=0)
     if bowling_team.score == "YTB":
         print(f"\n{bowling_team} Yet to bat")
     else:
-        runs_needed = bowling_team.score - batting_team.score
+        runs_needed = (bowling_team.score + 1) - batting_team.score
         balls_remaining = 6 * (19 - batting_team.overs) + (6 - batting_team.ballsFaced)
+        if balls_remaining == 0:
+            balls_remaining = 1
         print(
             f"Need {runs_needed} runs to win from {balls_remaining} balls.\tReq. RR {runs_needed / (balls_remaining/6):.2f}"
         )
@@ -251,6 +255,43 @@ def game_summary(toss, batting_team, bowling_team, round_no, match_no):
         f.write(result)
 
 
+def plot_odds(odds, overs, ball):
+    import matplotlib.pyplot as plt
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    labels = [
+        "Wicket",
+        "Wide",
+        "No Ball",
+        "Dot Ball",
+        "1 Run",
+        "2 Runs",
+        "3 Runs",
+        "4 Runs",
+        "6 Runs",
+    ]
+    sizes = np.array(
+        [
+            odds.wicket,
+            odds.wide,
+            odds.noBall,
+            odds.dotBall,
+            odds.oneRun,
+            odds.twoRuns,
+            odds.threeRuns,
+            odds.fourRuns,
+            odds.sixRuns,
+        ]
+    ).ravel()
+    # print(labels)
+    # print(sizes)
+    ax.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90)
+    title = f"{overs}.{ball}"
+    ax.set_title(title)
+    plt.savefig("../stats/" + title.replace(".", "-") + ".png", dpi=300)
+
+
 def run_match(home_team, away_team, league, round_no=0, match_no=0):
     home_team = Team(home_team)
     away_team = Team(away_team)
@@ -344,6 +385,8 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
                     random(bowling_team.bowl.length),
                 ]
                 odds = Odds(bat_stat, bowl_stat)
+                if plot:
+                    plot_odds(odds, batting_team.overs, batting_team.ballsFaced)
                 # print(f"{bowl} to {bat}...")
                 # print("\n")
                 scoreboard_text = ""
