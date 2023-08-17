@@ -200,10 +200,11 @@ class Player:
         return strikeRate
 
     def economy(self):
-        if self.oversBowled == 0:
+        balls_bowled = self.oversBowled * 6 + self.ballsBowled
+        if balls_bowled == 0:
             economy = 0.00
         else:
-            economy = self.runsConceded / self.oversBowled
+            economy = self.runsConceded / (balls_bowled / 6)
         return economy
 
     def __str__(self):
