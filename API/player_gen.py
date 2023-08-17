@@ -15,20 +15,19 @@ N_LAST_NAMES = 1183
 remove = True
 plot = False
 
-team_list = [
-    "Parliamentary Penpushers",
-    "Brighton Beachcombers",
-    "Birmingham Bullfrogs",
-    "Nottingham Nightingales",
-    "Edinburgh XI",
-    "Glasgow Goofballs",
-    "Bristol Bats",
-    "Cardiff Cwtchers",
-    "Manchester Monsters",
-    "Yorkshire Puddings",
-    "Devon Devils",
-    "Cornwall Catastrophes",
-]
+team_list = {
+    "Parliamentary Penpushers":"✒️",
+    "Brighton Beachcombers":"⛱️",
+    "Birmingham Bullfrogs":"🐸",
+    "Nottingham Nightingales":"🕊️",
+    "Edinburgh XI":"🏰",
+    "Glasgow Goofballs":"🤪",
+    "Cardiff Cwtchers":"🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "Manchester Monsters":"👹",
+    "Yorkshire Puddings":"🧁",
+    "Devon Devils":"😈",
+    "Cornwall Catastrophes":"🐱",
+}
 if remove:
     teams = glob("../Teams/*")
     for team in teams:
@@ -45,13 +44,14 @@ def generate_player(team):
     return Player(fname, lname, team)
 
 
-for team in team_list:
+for team in team_list.keys():
     print(team)
     players = []
     means = []
     os.makedirs("../Teams/" + team.replace(" ", "_") + "/players/")
     team_info = {
         "name": team,
+        "emoji": team_list[team],
         "gamesPlayed": 0,
         "gamesWon": 0,
         "gamesLost": 0,
