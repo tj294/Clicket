@@ -29,7 +29,6 @@ def gen_scoreboard_text(batting_team, bowling_team, ball_outcome, N_lines=59):
 
 def gen_dismissal(ball_outcome, N_lines=100):
     line_choice = npr.randint(0, N_lines)
-    print(line_choice)
     with open("../assets/BallOutcomes/wicket.txt", "r") as f:
         for i, line in enumerate(f):
             if i == line_choice:
@@ -226,21 +225,3 @@ def wicket(batting_team, bowling_team):
     )
     scoreboard_text += f"\nNew batter: {batting_team.batters[-1]}"
     return "W ", scoreboard_text
-
-
-def caughtBehind(batting_team, bowling_team):
-    print("Caught behind! Out!")
-    batting_team.wickets += 1
-    for batter in batting_team.batters:
-        if batter.onStrike:
-            batter.ballsFaced += 1
-            batting_team.batters.remove(batter)
-    batting_team.batters.append(
-        new_batter(batting_team.players[batting_team.wickets + 1], strike=True)
-    )
-    for bowler in bowling_team.bowlers:
-        if bowler.onStrike:
-            bowler.wicketsTaken += 1
-            bowler.ballsBowled += 1
-    print("New Batter: ", batting_team.batters[-1])
-    return "W "

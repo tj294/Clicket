@@ -113,7 +113,10 @@ def updateCareerStats(batting_team, bowling_team):
 
 
 def print_scorecard(batting_team, bowling_team, text="", round_no=0, match_no=0):
-    print("\n" * 10)
+    # print("\n" * 10)
+    print("\033[A" + 23 * "\033[A", end="")
+    print(f"{str( ):<60}\n" * 22)
+    print("\033[A" + 23 * "\033[A", end="")
     print(f"Round {round_no}, Match {match_no}")
     print(f"{'='*55:<55}")
     print(
@@ -329,8 +332,8 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
             batting_team = away_team
             bowling_team = home_team
     print("\n" + toss)
-
     time.sleep(INNINGS_PAUSE)
+    print("\n" * 24)
     # ? The Match
     innings = 1
     while innings <= 2:
