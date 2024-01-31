@@ -48,7 +48,7 @@ def print_league_table():
         score_list.append(team)
     for team in sorted(score_list, key=lambda k: (k["points"], k["NRR"]), reverse=True):
         print(
-            f"{team['emoji'] + ' ' + team['name']:<30} {team['gamesPlayed']:>5} {team['gamesWon']:>5} {team['gamesLost']:>5} {team['points']:>5} {team['NRR']:>5.2f}"
+            f"{team['name']:<30} {team['gamesPlayed']:>5} {team['gamesWon']:>5} {team['gamesLost']:>5} {team['points']:>5} {team['NRR']:>5.2f}"
         )
     print()
 

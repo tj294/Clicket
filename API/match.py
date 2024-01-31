@@ -114,9 +114,9 @@ def updateCareerStats(batting_team, bowling_team):
 
 def print_scorecard(batting_team, bowling_team, text="", round_no=0, match_no=0):
     # print("\n" * 10)
-    print("\033[A" + 23 * "\033[A", end="")
-    print(f"{str( ):<60}\n" * 22)
-    print("\033[A" + 23 * "\033[A", end="")
+    # print("\033[A" + 23 * "\033[A", end="")
+    print(f"{str( ):<60}\n" * 5)
+    # print("\033[A" + 23 * "\033[A", end="")
     print(f"Round {round_no}, Match {match_no}")
     print(f"{'='*55:<55}")
     print(
@@ -501,17 +501,27 @@ def run_match(home_team, away_team, league, round_no=0, match_no=0):
     # ? The Match is Over
     print("Match complete!")
     #! NRR = (total_runs scored / total overs faced) – (total runs conceded / total overs bowled)
+    #! N.B.  (If a team is all out, the number of overs faced is the maximum 20.)
+    if batting_team.wickets == 10:
+        overs_batted = 20
+    else:
+        overs_batted = batting_team.overs
+    if bowling_team.wickets == 10:
+        overs_bowled = 20
+    else:
+        overs_bowled = bowling_team.overs
+
     bat_NRR = [
-        batting_team.overs,
+        overs_batted,
         batting_team.score,
-        bowling_team.overs,
+        overs_bowled,
         bowling_team.score,
     ]
 
     bowl_NRR = [
-        bowling_team.overs,
+        overs_bowled,
         bowling_team.score,
-        batting_team.overs,
+        overs_batted,
         batting_team.score,
     ]
     if batting_team.score > bowling_team.score:
